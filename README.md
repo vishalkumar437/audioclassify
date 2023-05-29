@@ -2,7 +2,11 @@
 Machine Learning to classify different audio
 
 
-##Setup
+## Setup
+
 ```
 pip install path
+pip install torch
+pip install torchaudio
+pip install IPython
 ```
