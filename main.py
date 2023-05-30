@@ -39,7 +39,7 @@ def training(model, train_dl, num_epochs):
     for i, data in enumerate(train_dl):
         # Get the input features and target labels, and put them on the GPU
         inputs, labels = data[0].to(device), data[1].to(device)
-        print(i)
+        
 
         # Normalize the inputs
         inputs_m, inputs_s = inputs.mean(), inputs.std()
@@ -64,8 +64,8 @@ def training(model, train_dl, num_epochs):
         correct_prediction += (prediction == labels).sum().item()
         total_prediction += prediction.shape[0]
 
-        #if i % 10 == 0:    # print every 10 mini-batches
-        #    print('[%d, %5d] loss: %.3f' % (epoch + 1, i + 1, running_loss / 10))
+        if i % 10 == 0:    # print every 10 mini-batches
+          print('[%d, %5d] loss: %.3f' % (epoch + 1, i + 1, running_loss / 10))
     
     # Print stats at the end of the epoch
     num_batches = len(train_dl)
@@ -391,7 +391,7 @@ if __name__ == '__main__':
         next(myModel.parameters()).device
 
 
-        num_epochs=2   # Just for demo, adjust this higher.
+        num_epochs=20   # Just for demo, adjust this higher.
         training(myModel, train_dl, num_epochs)
 
 
