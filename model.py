@@ -87,6 +87,9 @@ if __name__ == "__main__":
         X, y, test_size=0.2, random_state=0
     )
 
+    # Save the label encoder classes
+    np.save("saved_models/labelencoder_classes.npy", labelencoder.classes_)
+
     # Model
     ### No of classes
     num_labels = y.shape[1]
